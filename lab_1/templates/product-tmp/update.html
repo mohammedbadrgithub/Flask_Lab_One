@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/mystyle.css') }}">
+   
+        <div>
+            <h1>Update Product</h1>
+            <div class="container card ">
+                <form method="POST" action='/saveupdate'  enctype = "multipart/form-data">
+                    <input value='{{student.id}}' type='hidden' name='id' />
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" value='{{student.title}}' name='name' placeholder="name">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Name</label>
+                        <input type = "file" class="form-control" name = "file" />
+                        </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">description</label>
+                        <textarea class="form-control"  name='des' id="exampleFormControlInput1">
+                            {{student.des}}
+                        </textarea>
+                      </div>
+                      <button class="btn btn-primary" type='submit'>save</button>
+                </form>
+            </div>
+        </div>
+    
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/mystyle.css') }}">
+    <div class=" pt-5 pb-5 ">
+
+        <h1 class="text-center"> All Products</h1>
+
+        <a href="{{url_for('addProduct')}}"class="btn btn-primary shadow fs-2 mb-4 " >add new Product</a>
+        <div class="container card pt-5 pb-5 ">
+          
+          <div class='row'>
+            {% for std in students %}
+                <div class= 'col-sm-8 col-md-6 col-lg-4 mb-3 '>
+                    <div class="card shadow" style="">
+                      <img src="{{url_for('static', filename='images/1.jpg')}}" class="card-img-top" alt="">
+                      <div class="card-body">
+                        <h5 class="card-title">{{std.title}}</h5>
+                        <h4>{{std.created_date}}</h4>
+                        <p class="card-text">{{std.des}}</p>
+                        <a href="{{url_for('student_details', id=std.id)}}" class="btn btn-primary shadow">show</a>
+                        <a href="{{url_for('update', id=std.id)}}" class="btn btn-warning shadow" >update</a>
+                        <a href="{{url_for('student_delete', id=std.id)}}" class="btn btn-block btn-danger shadow" >delete</a>
+                      </div>
+                  </div>
+                </div>
+                {% endfor %}
+          </div>
+        </div>
+        
+
+    </div>
+{% endblock %}
